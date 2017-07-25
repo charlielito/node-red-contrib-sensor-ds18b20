@@ -1,4 +1,4 @@
-# DS18B20 Node-RED node (Raspberry Pi compatible)
+# DS18B20 Sensor Node-RED node for Raspberry Pi
 
 ![example screenshot](https://dl.dropboxusercontent.com/u/3189942/pics/ds18b20_nodered_node.png)
 
@@ -9,25 +9,28 @@ The [underlying library](https://www.npmjs.com/package/ds18b20) is a npm module,
 ## Requirements
 
 On the Linux system where your Node-RED is running and where your sensors are connected to, make sure you have loaded all the kernel modules needed for working with 1-Wire devices, what the DS1820 sensor is.
+Thus, you need to active or have activated the 1-Wire Interface on the Rpi. To do this just go to the Raspi-Configuration page with:
 
 ```
-sudo modprobe w1-gpio
-sudo modprobe w1-therm
+sudo raspi-config
 ```
 
-It's good idea to have these modules loaded automatically at the boot time, but that's matter of how this could be done on the system you are using.
-It's quite a similar job on all systems, so for example my favorite Archlinux has done it [this way](https://wiki.archlinux.org/index.php/kernel_modules#Automatic_module_handling).
+Go to `Interfaces` and then to `1-Wire` and `enable` it and reboot the device. You are done.
+
 
 ## Installation
 
 Run the following command in the root directory of your Node-RED install
 
 ```
-npm install node-red-contrib-ds18b20 --save
+npm install node-red-contrib-sensor-ds18b20
 ```
+
+Or just use the `package manager`(or manage pallette) from the Node-Red Interface to search for this module and install it manually.
+
 
 ## Features
 
-* you can select a 1-wire device/sensor from a dropdown list in the configuration dialog of the node
-* configurable time interval of the sensor sampling
-* you can configure name of the node, that could be for example the place where is the node placed, if no name set, ID of the device is used as a label
+* You can select a 1-wire device/sensor from a dropdown list in the configuration dialog of the node
+* Configurable time interval of the sensor sampling
+* Periodic sensor sampling can be disabled, and sample temperature only when an external message arrives.
