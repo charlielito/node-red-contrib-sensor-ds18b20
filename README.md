@@ -1,6 +1,6 @@
 # DS18B20 Sensor Node-RED node for Raspberry Pi
 
-Node-RED node for working with DS18B20 sensors, inspired in this [library](https://github.com/stibi/node-red-contrib-ds18b20), but modified to behave slightly different with some extra functionalities.
+Node-RED node for working with [DS18B20 sensors](https://www.maximintegrated.com/en/products/analog/sensors-and-sensor-interface/DS18B20.html), inspired in this [library](https://github.com/stibi/node-red-contrib-ds18b20), but modified to behave slightly different with some extra functionalities.
 
 ![example screenshot](icons/example.png)
 
