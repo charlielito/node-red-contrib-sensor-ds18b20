@@ -1,10 +1,15 @@
 # DS18B20 Sensor Node-RED node for Raspberry Pi
 
-![example screenshot](https://dl.dropboxusercontent.com/u/3189942/pics/ds18b20_nodered_node.png)
+Node-RED node for working with DS18B20 sensors, inspired in this [library](https://github.com/stibi/node-red-contrib-ds18b20), but modified to behave slightly different with some extra functionalities.
 
-This Node-RED node is working only with DS18B20 sensors connected to a Raspberry Pi.
-It can't be used as a "general" node for communication with the sensor.
-The [underlying library](https://www.npmjs.com/package/ds18b20) is a npm module, which can read a data from a DS18B20 sensors connected to a Raspberry Pi and it is used by the node.
+![example screenshot](icons/example.png)
+
+It is compatible only with RaspberryPi hardware and it only reads the temperature values from sensors. The [base library](https://www.npmjs.com/package/ds18b20) is a npm module, which handles with the whole 1-Wire protocol with DS18B20 sensors (aka it does the magic).
+
+### Physical Connection of sensor(s)
+The DS18B20 sensors must be connected on GPIO4 (or physical pin #7) because this is the only pin that supports native 1-Wire protocol. The scheme of connection is typically the one on the image below.
+
+![example screenshot](icons/schema.png)
 
 ## Requirements
 
@@ -32,5 +37,7 @@ Or just use the `package manager`(or manage pallette) from the Node-Red Interfac
 ## Features
 
 * You can select a 1-wire device/sensor from a dropdown list in the configuration dialog of the node
-* Configurable time interval of the sensor sampling
+* Configurable time interval of the sensor sampling (in seconds)
 * Periodic sensor sampling can be disabled, and sample temperature only when an external message arrives.
+
+![example screenshot](icons/example_interface.png)
