@@ -8,26 +8,38 @@ module.exports = function(RED) {
         this.repeat = config.repeat;
         // user input is in seconds, this is conversion to miliseconds
         this.timer = config.timer * 1000;
+        this.topic = config.name; 
         var node = this;
 
-        var readSensor = function() {
+        var readSensor = function(input_msg) {
             //node.log("reading a sensor with id=" + node.sensorid);
             // TODO error handling
             sense.temperature(node.sensorid, function(err, value) {
-                var msg = { payload: value };
+                var topic;
+                if (input_msg == null)
+                      topic = node.topic;
+                else{
+                    if (node.topic != "")
+                        topic = node.topic;
+                    else
+                        topic = input_msg.topic;
+                }
+
+                var msg = { payload: value, topic: topic };
                 node.send(msg);
             });
         }
 
-        this.on("close", function() {
+        node.on("close", function() {
             clearInterval(this.tout);
         });
 
         if (node.repeat)
           node.tout = setInterval(readSensor, node.timer);
 
-        this.on('input', readSensor);
-
+        node.on('input', function(msg){
+            readSensor(msg)
+            });
     }
 
     RED.nodes.registerType("sensor-ds18b20", DS18B20Node);

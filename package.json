@@ -1,9 +1,9 @@
 {
     "name"         : "node-red-contrib-sensor-ds18b20",
-    "version"      : "0.0.2",
+    "version"      : "1.0.0",
     "description"  : "Node-RED node to get temperature in centigrades from DS18B20 sensors",
     "dependencies": {
-        "ds18b20"   : "0.0.2"
+        "ds18b20"   : "0.1.0"
     },
     "repository" : {
         "type":"git",
