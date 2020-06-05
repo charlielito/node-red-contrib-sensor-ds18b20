@@ -25,7 +25,7 @@ module.exports = function(RED) {
                         topic = input_msg.topic;
                 }
 
-                var msg = { payload: value, topic: topic };
+                var msg = { ...input_msg, payload: value, topic: topic };
                 node.send(msg);
             });
         }
