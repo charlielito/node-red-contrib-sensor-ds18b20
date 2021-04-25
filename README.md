@@ -6,6 +6,9 @@ Node-RED node for working with [DS18B20 sensors](https://www.maximintegrated.com
 
 It is compatible only with RaspberryPi hardware and it only reads the temperature values from sensors. The [base library](https://www.npmjs.com/package/ds18b20) is a npm module, which handles with the whole 1-Wire protocol with DS18B20 sensors (aka it does the magic).
 
+* NPM site: https://www.npmjs.com/package/node-red-contrib-sensor-ds18b20
+* Historic downloads statistics: https://npm-stat.com/charts.html?package=node-red-contrib-sensor-ds18b20&from=2017-01-23&to=2022-01-23
+
 ### Physical Connection of sensor(s)
 The DS18B20 sensors must be connected on GPIO4 (or physical pin #7) because this is the only pin that supports native 1-Wire protocol. The scheme of connection is typically the one on the image below.
 
